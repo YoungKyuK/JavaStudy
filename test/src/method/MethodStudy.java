@@ -13,8 +13,12 @@ public class MethodStudy {
 		//System.out.println( a.plus(1, 100) );
 		//System.out.println( a.plus(5, 100)  );
 		
-		System.out.println(PlusMethod.마이너스(100, 9));
+		System.out.println(PlusMethod.min(100, 9));
+		PlusMethod a = new PlusMethod();
 		
+		System.out.println( a.plus(8, 5));
+		
+		 
 		
 		
 		
