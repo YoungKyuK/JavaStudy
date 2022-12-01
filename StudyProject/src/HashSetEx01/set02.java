@@ -1,6 +1,7 @@
 package HashSetEx01;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 class A{
@@ -46,8 +47,9 @@ class C {
 	
 	@Override
 	public int hashCode() {
-		
-		return data;
+		// Objects.hashCode(data) 데이터를 기반으로 해쉬코드 생성
+		// == data 이렇게 적어도됌 근데 위에것이 더 좋음
+		return Objects.hashCode(data);
 	}
 }
 
@@ -78,7 +80,7 @@ public class set02 {
 		System.out.println( hashSet2.size()); // 2 (다른객체)
 		System.out.println();
 		
-		// #3. equals(), hashcode() 오버라이딩
+		// #3. equals() +  hashcode() 오버라이딩
 		Set<C> hashSet3 = new HashSet<>();
 		C c1 = new C(3);
 		C c2 = new C(3);
@@ -87,7 +89,7 @@ public class set02 {
 		System.out.println( c1.hashCode() + "," + c2.hashCode()); // 같은 hashcode
 		hashSet3.add(c1);
 		hashSet3.add(c2);
-		System.out.println( hashSet3.size()); // 1 같은객체
+		System.out.println( hashSet3.size()); // 1
 		
 		
 		
