@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+
+:root{
+    --text-color : #f0f4f5;
+    --background-color : rgb(47, 47, 47);
+    --accent-color : #d49466;
+}
+
+body{
+    margin: 0;
+    font-family: 'NanumSquareBold';
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color : var(--text-color);
+}
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 20px 50px;
+
+    position : sticky;
+    top: 0;
+   
+}
+
+.navbar_logo{
+    font-size: 20px;
+    color : var(--text-color);
+}
+
+.navbar_logo a{
+    padding-left : 10px;
+}
+
+.navbar_search{
+    display: flex;
+    padding-left: 0;
+}
+
+.navbar_login{
+    padding-left: 150px;
+}
+
+#totalSearch{
+    background-color:  rgb(36, 35, 35);
+    color : var(--text-color);
+    width: 350px;
+    height:25px;
+    border : none;
+    outline: none;
+    padding: 2px 2px 2px 20px;
+}
+
+
+.icon{
+    background-color: rgb(36, 35, 35);
+    border: none;
+}
+.icon i{
+    color : #f0f4f5;
+}
+
+
+@media screen and ( max-width:768px ){
+    .navbar{
+        flex-direction: column;
+        padding : 8px 50px;
+    }
+
+    .navbar_search{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar_login.avtive {
+        display: flex;
+    }
+
+}
+
+i {
+    padding-right: 7px;
+}
+
