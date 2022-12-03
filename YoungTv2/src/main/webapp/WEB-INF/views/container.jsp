@@ -1,5 +1,35 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.example.model1.CommentTO" %>
+<%
+    String seq = request.getParameter("seq");
+	
+	
+	ArrayList<CommentTO> commentLists = (ArrayList)request.getAttribute("commentLists");
+	System.out.println( commentLists );
+	StringBuilder commentSb = new StringBuilder();
+	for ( CommentTO cto : commentLists ){
+		
+			commentSb.append(" <div class='writer'>");
+			commentSb.append( cto.getWriter() + "<input type='text' name='cwriter' maxlength='10' class='coment_input' />&nbsp;&nbsp;");
+			commentSb.append(cto.getPassword()+ "<input type='password' name='cpassword' class='coment_input pR10' />&nbsp;&nbsp;");
+			commentSb.append("<h3>댓글 23개</h3>");
+			commentSb.append(" </div> <!-- writer-->");
+			commentSb.append("<form>");
+			commentSb.append("<textarea class='textarea' placeholder='댓글을 입력해주세요'></textarea>");
+			commentSb.append("</form>");
+			commentSb.append("<input class='comment keyup'type='submit' value='댓글등록'>");
+			commentSb.append("<ul class='comments'>");
+			commentSb.append("<li>"+ cto.getWriter() +"</li>");
+			commentSb.append("<span>"+cto.getContent()+"</span>");
+		
+	}
+
+
+
+
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -112,6 +142,8 @@
 
                 <div class="borderline textline">
 
+			<%=commentSb %>
+			<!--  
                   <div class="writer">
 
                     글쓴이 <input type="text" name="cwriter" maxlength="10" class="coment_input" />&nbsp;&nbsp;
@@ -119,33 +151,15 @@
 
                   <h3>댓글 23개</h3>
                 </div> <!-- writer-->
-                  <form>
+                <!--<form>
                     <textarea class="textarea" placeholder="댓글을 입력해주세요"></textarea>
                   </form>
                   <input class="comment keyup"type="submit" value="댓글등록">
-
-
-
-
                   <ul class="comments">
                     <li>Name</li>
                     <span>하이</span>
-              
+               -->
                 </div><!--borderline-->
-
-               
-
-                   
-
-           
-                  
-                 
-
-             
-
-            
-
-           
         </div><!-- container-->
     </div> <!-- wrap-->
 
