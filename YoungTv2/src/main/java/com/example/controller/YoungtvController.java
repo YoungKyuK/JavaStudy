@@ -16,16 +16,21 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.model1.CommentDAO;
 import com.example.model1.CommentTO;
 
-@RestController
+@RestController // 컨트롤러 bean으로 등록    bean( 자바객체 )
 public class YoungtvController {
 	
 	@Autowired
 	private CommentDAO cdao;
 	
-
+	
+	
+	// url과 메서드 매핑(연결) 사이트에서 /main을 치면 아래 연결된 메서드 ( ModelAndView main ) 가 호출된다.
+	// model : 자료를 저장하는 객체 
 	@RequestMapping(value = "/main")
 	   public ModelAndView main(HttpServletRequest request, Model model) {
 	      ModelAndView modelAndView = new ModelAndView();
+	      
+	      // main.jsp 가서 보여줘
 	      modelAndView.setViewName("main");
 	      
 	      return modelAndView;
@@ -37,7 +42,8 @@ public class YoungtvController {
 	      
 	      ArrayList<CommentTO> commentLists = cdao.commentView("seq");
 	      
-	      model.addAttribute("commentLists",commentLists);
+	      // 변수명 , 값
+	      model.addAttribute("commentLists",commentLists); // key, value
 	     
 	      
 	      return new ModelAndView("container");
