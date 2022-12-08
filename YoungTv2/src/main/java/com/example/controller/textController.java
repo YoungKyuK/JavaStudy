@@ -6,14 +6,14 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletRequest;import org.hamcrest.collection.IsMapWithSize;
 import org.springframework.beans.propertyeditors.URLEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -118,4 +118,52 @@ public class textController {
 	     // new ModelAndView ("이동할 주소", key ( 변수명 ) , value )
 	      return new ModelAndView("test/mav_result","map",map);
 	   }
+	
+	
+	@RequestMapping(value = "/ajax.do")
+	   public ModelAndView ajax(HttpServletRequest request, Model model) {
+	      ModelAndView modelAndView = new ModelAndView();
+	      
+	      modelAndView.setViewName("test/ajax");
+	      
+	      return modelAndView;
+	   }
+	
+	// @ResponseBody 데이터 자체를 리턴 => json 형식으로 리턴
+	// { "name" : "TV" , "price" : 500000 }
+	@RequestMapping("background.do")
+	public @ResponseBody ProductTO background() {
+		ProductTO dto = new ProductTO("TV", 500000);
+//		dto.setName("티비");
+//		dto.setPrice(1000);
+		return dto; // 데이터 자체를 리턴
+	}
+	
+	@RequestMapping(value = "/login.do")
+	   public ModelAndView login(HttpServletRequest request, Model model) {
+	      ModelAndView modelAndView = new ModelAndView();
+	      
+	      modelAndView.setViewName("test/login");
+	      
+	      return modelAndView;
+	   }
+	
+	@RequestMapping(value = "/login_result.do")
+	   public ModelAndView login_result(String id, String pw, Model model) {
+	      ModelAndView modelAndView = new ModelAndView();
+	      
+	      String result="";
+	      if ( id.equals("kim")&& pw.equals("1234")) {
+	    	  result= "환영합니다";
+	      } else {
+	    	   result="아이디나 패스워드가 맞지 않습니다";
+	      }
+	      model.addAttribute("result",result);
+	      modelAndView.setViewName("test/login_result");
+	      
+	      return modelAndView;
+	   }
+	
+	
+	
 }

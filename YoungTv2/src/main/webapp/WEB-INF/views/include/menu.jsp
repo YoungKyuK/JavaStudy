@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
     <div style ="text-alingn:center">
-    <a href="">Home</a>
+    <a href="../example">Home</a>
     <a href="/multi_table.do">구구단</a>
     <a href="/point.do">성적계산</a>
     <a href="/move.do">redirect</a>
