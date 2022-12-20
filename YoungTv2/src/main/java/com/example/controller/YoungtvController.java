@@ -36,6 +36,16 @@ public class YoungtvController {
 	      return modelAndView;
 	   }
 	
+	@RequestMapping(value = "/main2")
+	   public ModelAndView main2(HttpServletRequest request, Model model) {
+	      ModelAndView modelAndView = new ModelAndView();
+	      
+	      // main.jsp 가서 보여줘
+	      modelAndView.setViewName("main2");
+	      
+	      return modelAndView;
+	   }
+	
 	@RequestMapping(value = "/container")
 	   public ModelAndView container(HttpServletRequest request, Model model) {
 	     

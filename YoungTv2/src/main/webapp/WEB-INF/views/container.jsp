@@ -60,7 +60,7 @@
             <a href="" class="navbar_btn">
                 <i class="fa-solid fa-bars"></i>
             </a>
-                <a href="">YoungKyu</a>
+                <a href="main">YoungKyu</a>
         </div>
 
         <div class="navbar_search">
@@ -108,7 +108,7 @@
         </div> <!-- side_menu-->
    
         <div class="container">
-           <div id="map" style="width:100%;height:400px;"></div>
+          
 
             <iframe width="1250px" height="500px" src="https://www.youtube.com/embed/pSkKGLQ6Z7Q" 
             title="YouTube video player" frameborder="0" 

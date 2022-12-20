@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -15,6 +17,32 @@
 <link href="http://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/c85ddc4e85.js" crossorigin="anonymous"></script>
 <script src="main.js" defer></script>
+
+  <script>
+      $(document).ready(function () {
+        $.ajax({
+          type: "GET",
+          url: "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20221219", //사용자가 가져온 API를 넣으세요
+          data: {},
+          success: function (response) {
+            let movieList = response["boxOfficeResult"]["dailyBoxOfficeList"];
+            for (let i = 0; i < movieList.length; i++) {
+              let rank = movieList[i]["rank"];
+              let movieNm = movieList[i]["movieNm"];
+              let movieCd = movieList[i]["movieCd"];
+             
+            
+           
+
+              $(".container").append("<ul>");
+              $(".container").append("<li>" + "<a href='container'>" +"<img src='img/gold.jpg'>"+"</a>"+"<span>" + movieNm + 
+            		  "</span>" + "<span>" + 드라마 + "</span>" + "<i class='fa-solid fa-heart'>" + "</i>" + 90 + "</span>" + "</li>" );
+            }
+          },
+        });
+      });
+    </script>
+
 </head>
 <body>
    <nav class="navbar">
